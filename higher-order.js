@@ -20,8 +20,8 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
   (element, index, wholeArray)=>{}    Arrow Form
 */
 
-// mixedNumbers.filter((e,i) => e % 2 !== 0 ? mixedNumbers.splice(i,1) : return i})
-var evenNumbers = mixedNumbers.filter((e,i) => e % 2 !== 0 ? mixedNumbers.splice(i,1)})
+// var evenNumbers = mixedNumbers.filter((e,i) => mixedNumbers[i] % 2 !== 0 ? mixedNumbers.splice(i,1) : evenNumbers.push[i]);
+var evenNumbers = mixedNumbers.filter((e,i) => e % 2 === 0)
 
 
 
@@ -105,9 +105,9 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get the sum of all the order totals after adding in the sales tax
 */
 
-let ordersTotal = orders.reduce((acc,e) => acc + e.tax + e.price)
+let ordersTotal = orders.map((e,i,orders) => orders[i].price = orders[i].price * (orders[i].tax + 1))
 
-
+// arr[i].price + arr[i].tax
 
 ////////// PROBLEM 6 //////////
 
@@ -125,10 +125,11 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal = purchases.reduce((acc,e) => {
-   if (e.owner === "Bob") {
-     acc + e.price
+let bobsTotal = purchases.reduce((acc,curr,i,purchases) => {
+   if (purchases[i].owner === "Bob") {
+     acc += purchases[i].price
     }
-  })
+    return acc
+  }, 0)
 
 
